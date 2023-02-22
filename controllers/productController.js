@@ -82,7 +82,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
         throw new Error("Product not found");
     }
     // Match product to its user
-    if (product.user.toString() !== req.user.id) {
+    if (product.user.toString() !== req.user.id.toString()) {
         res.status(401);
         throw new Error("User not authorized");
     }
